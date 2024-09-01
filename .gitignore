@@ -1,0 +1,55 @@
+# Build outputs
+bin/
+obj/
+out/
+
+# Visual Studio temporary files
+.vs/
+.vscode/
+.vscode/*
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folders for Xcode projects
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+
+# Unity specific ignores
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Pp]ackages/
+[Pp]rojectSettings/
+
+# Rider files
+.idea/
+
+# Include Rider's user preferences directory
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/shelf/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/shelf/
+
+# Include all .DotSettings files except file containing Rider's user preferences
+!**/*.DotSettings
