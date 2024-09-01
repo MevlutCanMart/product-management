@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace ProductManagement
 {
@@ -44,7 +45,7 @@ namespace ProductManagement
 
             LoadData();
             LoadTaxGroups();
-
+            LoadUnitOfMeasure();
             InitializeFormSettings();
             InitializeComboBoxItems();
             
@@ -106,6 +107,38 @@ namespace ProductManagement
                 textBoxTaxRate.Text = taxRate != null ? taxRate.ToString() : "0.00";
             }
         }
+
+
+        private void LoadUnitOfMeasure()
+        {
+            string query = "SELECT UnitOfMeasureID, UnitOfMeasureName FROM UnitOfMeasure";
+
+            using (SqlConnection con = new SqlConnection("Server=localhost\\SQLEXPRESS;Initial Catalog=Product;Integrated Security=True"))
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                Dictionary<int, string> unitOfMeasures = new Dictionary<int, string>();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetString(1);
+                    unitOfMeasures.Add(id, name);
+                }
+
+                comboBoxUnitOfMeasureName.DataSource = new BindingSource(unitOfMeasures, null);
+                comboBoxUnitOfMeasureName.DisplayMember = "Value";
+                comboBoxUnitOfMeasureName.ValueMember = "Key";
+
+                con.Close();
+            }
+        }
+
+        
+
 
 
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -265,8 +298,8 @@ namespace ProductManagement
                     connection.Open();
 
                     // Item tablosuna veri ekleme
-                    string itemQuery = "INSERT INTO Item (ItemName, Description, Price, StockQuantity, ImageURL, Color, Weight, Material, Status, Rating, Location, Featured, Discount, Brand, TaxGroupID) " +
-                                       "VALUES (@ItemName, @Description, @Price, @StockQuantity, @ImageURL, @Color, @Weight, @Material, @Status, @Rating, @Location, @Featured, @Discount, @Brand, @TaxGroupID); " +
+                    string itemQuery = "INSERT INTO Item (ItemName, Description, Price, StockQuantity, ImageURL, Color, Weight, Material, Status, Rating, Location, Featured, Discount, Brand, TaxGroupID, UnitOfMeasureID) " +
+                                       "VALUES (@ItemName, @Description, @Price, @StockQuantity, @ImageURL, @Color, @Weight, @Material, @Status, @Rating, @Location, @Featured, @Discount, @Brand, @TaxGroupID, @UnitOfMeasureID); " +
                                        "SELECT SCOPE_IDENTITY();";
                     using (SqlCommand itemCommand = new SqlCommand(itemQuery, connection))
                     {
@@ -285,6 +318,8 @@ namespace ProductManagement
                         itemCommand.Parameters.Add("@Discount", SqlDbType.NVarChar, -1).Value = comboBoxDiscount.SelectedItem?.ToString() ?? (object)DBNull.Value;
                         itemCommand.Parameters.Add("@Brand", SqlDbType.VarChar, 50).Value = comboBoxBrand.SelectedItem?.ToString() ?? (object)DBNull.Value;
                         itemCommand.Parameters.Add("@TaxGroupID", SqlDbType.Int, 100).Value = comboBoxTaxGroup.SelectedValue;
+                        itemCommand.Parameters.Add("@UnitOfMeasureID", SqlDbType.Int, 100).Value = comboBoxUnitOfMeasureName.SelectedValue;
+
                         int itemId = Convert.ToInt32(itemCommand.ExecuteScalar());
                         
 
@@ -372,7 +407,7 @@ namespace ProductManagement
                     connection.Open();
 
                     // Item tablosunda güncelleme
-                    string itemQuery = "UPDATE Item SET ItemName = @ItemName, Description = @Description, Price = @Price, StockQuantity = @StockQuantity, ImageURL = @ImageURL, Color = @Color, Weight = @Weight, Material = @Material, Status = @Status, Rating = @Rating, Location = @Location, Featured = @Featured, Discount = @Discount, Brand = @Brand, TaxGroupID = @TaxGroupID WHERE ItemID = @ItemID";
+                    string itemQuery = "UPDATE Item SET ItemName = @ItemName, Description = @Description, Price = @Price, StockQuantity = @StockQuantity, ImageURL = @ImageURL, Color = @Color, Weight = @Weight, Material = @Material, Status = @Status, Rating = @Rating, Location = @Location, Featured = @Featured, Discount = @Discount, Brand = @Brand, TaxGroupID = @TaxGroupID, UnitOfMeasureID = @UnitOfMeasureID WHERE ItemID = @ItemID";
                     using (SqlCommand itemCommand = new SqlCommand(itemQuery, connection))
                     {
                         itemCommand.Parameters.Add("@ItemName", SqlDbType.VarChar, 100).Value = textBoxItemName.Text;
@@ -390,6 +425,8 @@ namespace ProductManagement
                         itemCommand.Parameters.Add("@Discount", SqlDbType.NVarChar, -1).Value = comboBoxDiscount.SelectedItem?.ToString() ?? (object)DBNull.Value;
                         itemCommand.Parameters.Add("@Brand", SqlDbType.VarChar, 50).Value = comboBoxBrand.SelectedItem?.ToString() ?? (object)DBNull.Value;
                         itemCommand.Parameters.Add("@TaxGroupID", SqlDbType.Int).Value = (int)comboBoxTaxGroup.SelectedValue;
+                        itemCommand.Parameters.Add("@UnitOfMeasureID", SqlDbType.Int).Value = (int)comboBoxUnitOfMeasureName.SelectedValue;
+                        
                         itemCommand.Parameters.Add("@ItemID", SqlDbType.Int).Value = itemId;
 
                         int rowsAffected = itemCommand.ExecuteNonQuery();

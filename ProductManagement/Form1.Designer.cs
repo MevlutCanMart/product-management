@@ -53,6 +53,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxTaxRate = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.comboBoxTaxGroup = new System.Windows.Forms.ComboBox();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -72,8 +74,8 @@
             this.comboBoxRating = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
-            this.textBoxTaxRate = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.comboBoxUnitOfMeasureName = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStockQuantity)).BeginInit();
@@ -194,7 +196,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(926, 203);
+            this.label7.Location = new System.Drawing.Point(1013, 230);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 18);
@@ -207,7 +209,7 @@
             this.buttonLoadImage.BackColor = System.Drawing.Color.Transparent;
             this.buttonLoadImage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.buttonLoadImage.ForeColor = System.Drawing.Color.Black;
-            this.buttonLoadImage.Location = new System.Drawing.Point(1055, 227);
+            this.buttonLoadImage.Location = new System.Drawing.Point(1091, 227);
             this.buttonLoadImage.Name = "buttonLoadImage";
             this.buttonLoadImage.Size = new System.Drawing.Size(89, 27);
             this.buttonLoadImage.TabIndex = 21;
@@ -304,6 +306,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.comboBoxUnitOfMeasureName);
+            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.textBoxTaxRate);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.comboBoxTaxGroup);
@@ -354,12 +358,34 @@
             this.groupBox1.Text = "Product Information";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // textBoxTaxRate
+            // 
+            this.textBoxTaxRate.BackColor = System.Drawing.Color.White;
+            this.textBoxTaxRate.Enabled = false;
+            this.textBoxTaxRate.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxTaxRate.Location = new System.Drawing.Point(788, 166);
+            this.textBoxTaxRate.Name = "textBoxTaxRate";
+            this.textBoxTaxRate.ReadOnly = true;
+            this.textBoxTaxRate.Size = new System.Drawing.Size(174, 25);
+            this.textBoxTaxRate.TabIndex = 47;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(716, 172);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 17);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Tax Rate";
+            // 
             // comboBoxTaxGroup
             // 
             this.comboBoxTaxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTaxGroup.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBoxTaxGroup.FormattingEnabled = true;
-            this.comboBoxTaxGroup.Location = new System.Drawing.Point(746, 131);
+            this.comboBoxTaxGroup.Location = new System.Drawing.Point(788, 131);
             this.comboBoxTaxGroup.Name = "comboBoxTaxGroup";
             this.comboBoxTaxGroup.Size = new System.Drawing.Size(174, 25);
             this.comboBoxTaxGroup.TabIndex = 45;
@@ -368,7 +394,7 @@
             // 
             this.buttonUpdate.BackgroundImage = global::ProductManagement.Properties.Resources.diskette;
             this.buttonUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonUpdate.Location = new System.Drawing.Point(1148, 274);
+            this.buttonUpdate.Location = new System.Drawing.Point(1148, 289);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(50, 50);
             this.buttonUpdate.TabIndex = 17;
@@ -379,7 +405,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(621, 134);
+            this.label16.Location = new System.Drawing.Point(663, 134);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(117, 17);
@@ -390,7 +416,7 @@
             // 
             this.buttonDelete.BackgroundImage = global::ProductManagement.Properties.Resources.trash;
             this.buttonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonDelete.Location = new System.Drawing.Point(1077, 274);
+            this.buttonDelete.Location = new System.Drawing.Point(1077, 289);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(50, 50);
             this.buttonDelete.TabIndex = 16;
@@ -401,7 +427,7 @@
             // 
             this.buttonAdd.BackgroundImage = global::ProductManagement.Properties.Resources.add_button;
             this.buttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonAdd.Location = new System.Drawing.Point(1004, 274);
+            this.buttonAdd.Location = new System.Drawing.Point(1004, 289);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(50, 50);
             this.buttonAdd.TabIndex = 15;
@@ -413,7 +439,7 @@
             this.textBoxBarcode.BackColor = System.Drawing.Color.White;
             this.textBoxBarcode.Enabled = false;
             this.textBoxBarcode.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxBarcode.Location = new System.Drawing.Point(746, 93);
+            this.textBoxBarcode.Location = new System.Drawing.Point(788, 93);
             this.textBoxBarcode.Name = "textBoxBarcode";
             this.textBoxBarcode.ReadOnly = true;
             this.textBoxBarcode.Size = new System.Drawing.Size(174, 25);
@@ -423,7 +449,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(674, 96);
+            this.label15.Location = new System.Drawing.Point(716, 96);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 17);
@@ -434,7 +460,7 @@
             // 
             this.textBoxBarcodeType.Enabled = false;
             this.textBoxBarcodeType.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxBarcodeType.Location = new System.Drawing.Point(746, 55);
+            this.textBoxBarcodeType.Location = new System.Drawing.Point(788, 55);
             this.textBoxBarcodeType.Name = "textBoxBarcodeType";
             this.textBoxBarcodeType.Size = new System.Drawing.Size(174, 25);
             this.textBoxBarcodeType.TabIndex = 41;
@@ -443,7 +469,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(639, 58);
+            this.label14.Location = new System.Drawing.Point(681, 58);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(98, 17);
@@ -498,7 +524,7 @@
             // 
             this.checkBoxFeatured.AutoSize = true;
             this.checkBoxFeatured.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBoxFeatured.Location = new System.Drawing.Point(835, 318);
+            this.checkBoxFeatured.Location = new System.Drawing.Point(746, 318);
             this.checkBoxFeatured.Name = "checkBoxFeatured";
             this.checkBoxFeatured.Size = new System.Drawing.Size(85, 21);
             this.checkBoxFeatured.TabIndex = 34;
@@ -557,27 +583,26 @@
             this.pictureBoxImage.TabIndex = 19;
             this.pictureBoxImage.TabStop = false;
             // 
-            // textBoxTaxRate
+            // comboBoxUnitOfMeasureName
             // 
-            this.textBoxTaxRate.BackColor = System.Drawing.Color.White;
-            this.textBoxTaxRate.Enabled = false;
-            this.textBoxTaxRate.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxTaxRate.Location = new System.Drawing.Point(746, 170);
-            this.textBoxTaxRate.Name = "textBoxTaxRate";
-            this.textBoxTaxRate.ReadOnly = true;
-            this.textBoxTaxRate.Size = new System.Drawing.Size(174, 25);
-            this.textBoxTaxRate.TabIndex = 47;
+            this.comboBoxUnitOfMeasureName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUnitOfMeasureName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBoxUnitOfMeasureName.FormattingEnabled = true;
+            this.comboBoxUnitOfMeasureName.Location = new System.Drawing.Point(788, 206);
+            this.comboBoxUnitOfMeasureName.Name = "comboBoxUnitOfMeasureName";
+            this.comboBoxUnitOfMeasureName.Size = new System.Drawing.Size(174, 25);
+            this.comboBoxUnitOfMeasureName.TabIndex = 49;
             // 
-            // label17
+            // label19
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label17.Location = new System.Drawing.Point(674, 176);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 17);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "Tax Rate";
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label19.Location = new System.Drawing.Point(629, 212);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(156, 17);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "Unit Of Measure Name";
             // 
             // FormProducts
             // 
@@ -654,6 +679,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBoxTaxRate;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBoxUnitOfMeasureName;
+        private System.Windows.Forms.Label label19;
     }
 }
 
