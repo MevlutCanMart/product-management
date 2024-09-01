@@ -222,6 +222,7 @@ namespace ProductManagement
                     i.Discount, 
                     i.Brand,
                     i.TaxGroupID,
+                    i.UnitOfMeasureID,
                     p.Barcode
                 FROM 
                     Item i
@@ -269,7 +270,8 @@ namespace ProductManagement
                 comboBoxDiscount.SelectedItem = selectedRow.Cells["Discount"].Value.ToString();
                 comboBoxBrand.SelectedItem = selectedRow.Cells["Brand"].Value.ToString();
                 comboBoxTaxGroup.SelectedValue = selectedRow.Cells["TaxGroupID"].Value;
-                
+                comboBoxUnitOfMeasureName.SelectedValue = selectedRow.Cells["UnitOfMeasureID"].Value;
+
                 checkBoxFeatured.Checked = Convert.ToBoolean(selectedRow.Cells["Featured"].Value);
 
                 // Barcode bilgilerini ekleyin

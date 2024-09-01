@@ -53,6 +53,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxUnitOfMeasureName = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.textBoxTaxRate = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.comboBoxTaxGroup = new System.Windows.Forms.ComboBox();
@@ -74,8 +76,6 @@
             this.comboBoxRating = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
-            this.comboBoxUnitOfMeasureName = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStockQuantity)).BeginInit();
@@ -358,6 +358,27 @@
             this.groupBox1.Text = "Product Information";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // comboBoxUnitOfMeasureName
+            // 
+            this.comboBoxUnitOfMeasureName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUnitOfMeasureName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBoxUnitOfMeasureName.FormattingEnabled = true;
+            this.comboBoxUnitOfMeasureName.Location = new System.Drawing.Point(788, 206);
+            this.comboBoxUnitOfMeasureName.Name = "comboBoxUnitOfMeasureName";
+            this.comboBoxUnitOfMeasureName.Size = new System.Drawing.Size(174, 25);
+            this.comboBoxUnitOfMeasureName.TabIndex = 49;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label19.Location = new System.Drawing.Point(629, 212);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(156, 17);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "Unit Of Measure Name";
+            // 
             // textBoxTaxRate
             // 
             this.textBoxTaxRate.BackColor = System.Drawing.Color.White;
@@ -524,7 +545,7 @@
             // 
             this.checkBoxFeatured.AutoSize = true;
             this.checkBoxFeatured.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBoxFeatured.Location = new System.Drawing.Point(746, 318);
+            this.checkBoxFeatured.Location = new System.Drawing.Point(788, 249);
             this.checkBoxFeatured.Name = "checkBoxFeatured";
             this.checkBoxFeatured.Size = new System.Drawing.Size(85, 21);
             this.checkBoxFeatured.TabIndex = 34;
@@ -582,27 +603,6 @@
             this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImage.TabIndex = 19;
             this.pictureBoxImage.TabStop = false;
-            // 
-            // comboBoxUnitOfMeasureName
-            // 
-            this.comboBoxUnitOfMeasureName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUnitOfMeasureName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBoxUnitOfMeasureName.FormattingEnabled = true;
-            this.comboBoxUnitOfMeasureName.Location = new System.Drawing.Point(788, 206);
-            this.comboBoxUnitOfMeasureName.Name = "comboBoxUnitOfMeasureName";
-            this.comboBoxUnitOfMeasureName.Size = new System.Drawing.Size(174, 25);
-            this.comboBoxUnitOfMeasureName.TabIndex = 49;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label19.Location = new System.Drawing.Point(629, 212);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(156, 17);
-            this.label19.TabIndex = 48;
-            this.label19.Text = "Unit Of Measure Name";
             // 
             // FormProducts
             // 
